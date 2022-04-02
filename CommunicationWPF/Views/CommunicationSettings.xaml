@@ -1,0 +1,68 @@
+﻿<Window x:Class="CommunicationWPF.Views.CommunicationSettings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CommunicationWPF.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CommunicationSettings">
+    <Window.DataContext>
+        <Binding Path="Settings" Source="{StaticResource Locator}"/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70*" />
+            <RowDefinition Height="70*" />
+            <RowDefinition Height="64*" />
+            <RowDefinition Height="77*" />
+            <RowDefinition Height="69*" />
+            <RowDefinition Height="69*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="1"
+                   Text="Source IP:"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="28" Margin="37,10,42,32" Width="119" FontSize="16"/>
+
+        <TextBox MaxLength="10" Margin="10,10,46,44" Grid.Row="1" Name="source" Grid.Column="1" 
+                 Text="{Binding UDPCommunicationProtocol.sourceIP ,Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="1"
+                   Text="Source port:"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="28" Margin="37,64,42,42" Width="119" FontSize="16" Grid.RowSpan="2"/>
+
+        <TextBox MaxLength="10" Margin="10,64,46,53" Grid.Row="1" Name="port" RenderTransformOrigin="0.803,0.842" Grid.Column="1" Grid.RowSpan="2"/>
+
+        <TextBlock Grid.Row="2"
+                   Text="Dest IP:"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="28" Margin="37,36,42,0" Width="119" FontSize="16"/>
+
+        <TextBox MaxLength="10" Margin="10,35,46,10" Grid.Row="2" Name="destIP" Grid.Column="1"/>
+
+        <TextBlock Grid.Row="3"
+                   Text="Dest port:"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="28" Margin="37,10,42,39" Width="119" FontSize="16"/>
+
+        <TextBox MaxLength="10" Margin="10,10,46,50" Grid.Row="3" Name="destport" Grid.Column="1"/>
+
+        <Button Grid.Row="1" Grid.Column="2" x:Name="Connect"
+            Content="Connect"
+            Command="{Binding Connect}"
+             Margin="0,46,73,0"/>
+
+        <TextBlock Grid.Row="2"
+                   Text="Status text"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="28" Margin="25,6,-120,30" Width="293" FontSize="16" Grid.Column="2"/>
+    </Grid>
+</Window>
