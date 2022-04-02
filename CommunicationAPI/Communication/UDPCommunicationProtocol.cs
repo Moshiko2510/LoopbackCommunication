@@ -15,6 +15,7 @@ namespace CommunicationAPI.Communication
         public UDPCommunicationProtocol()
         {
 
+
         }
 
 
